@@ -601,3 +601,100 @@ for i, j in lis2.items():
     print(i, j)
 """
 
+# Functions
+"""
+# It is a block of statements that returns the specific task.
+# Syntax - def function_name(parameter):
+#              statements
+#             return expression
+def fun():
+    print("Function created")
+print("Calling function")
+fun()
+print("Function called")
+
+def add(num1: int, num2: int) -> int :
+    num3 = num1 + num2
+    return num3
+print("Add-", add(15, 14))
+
+n = 18
+def checkprime(n):
+    if n > 1:
+      for i in range(2, n):
+          if (n % i) == 0:
+           print(n, "is not a prime number")
+           print(i, "times", n // i, "is", n)
+           break
+          else:
+           print(n, "is a prime number")
+    else:
+      print(n, "is not a prime number")
+
+
+print(checkprime(n))
+
+# Default arguments
+def myfun(x, y=50):
+    print(x)
+    print(y)
+myfun(30)
+# Keyword arguments
+def profile(fname, lname):
+    print(fname, lname)
+profile(fname="Dhairya", lname="Saraswat")
+# Docstring - The first string after the function is called the Document string
+# Syntax: print(function_name.__doc__)
+x = int(input("Enter any number :"))
+def ed(x):  
+    if(x%2==0):
+        print("Even")
+    else:
+        print("Odd")
+print(ed.__doc__)  
+print(ed(x))
+# return statement
+def sq(y):
+    return y**2
+print(sq(3))
+"""
+# Pass by reference can change the value. Ex-
+def myfx(x):
+    x[0]=20
+list3 = [10, 30]
+print("Value before", list3)
+myfx(list3)
+print("Value after", list3)
+# Pass by value cannot change original value. Ex-
+def myfx1(x):
+    x = 20
+list4 = 10
+print("Value before", list4)
+# myfx(list4)   # Error- 'int' object does not support item assignment
+print("Value after", list4)
+# Anonymous functions - Functions without a name
+# lambda keyword is used to create anonymous functions.
+def cube(x):
+    return x * x * x
+cube1 = lambda y: y * y * y
+print(cube(10))
+print(cube1(10))
+# Nested Functions
+def f1():
+    greet = "Welcome"
+    def f2():
+        print(greet)
+    f2()
+f1()
+
+# Generator-Function- It generates a value with yield keyword rather than return
+i = 1
+def Genfx(i):
+    yield i
+    i += 1
+    yield i
+    i += 2
+    yield i
+for value in Genfx(i):
+    print(value)
+""
