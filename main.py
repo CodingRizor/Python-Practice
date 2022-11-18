@@ -657,7 +657,7 @@ print(ed(x))
 def sq(y):
     return y**2
 print(sq(3))
-"""
+
 # Pass by reference can change the value. Ex-
 def myfx(x):
     x[0]=20
@@ -697,4 +697,45 @@ def Genfx(i):
     yield i
 for value in Genfx(i):
     print(value)
+print("----")
+# Example - 2
+def sq(num):
+    for i in num:
+       yield i*i
+
+n = sq([1, 2, 3])
+for val in n:
+    print(val)
+# print(next(n))
+# print(next(n))
+# print(next(n))
+# print(next(n))
+print("---")
+def gn(n):
+    for i in range(n):
+        yield i
+#    return k
+# This will show generator object
+print (gn(n))
+g = gn(5)
+for i in g:
+    print(i)
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__()) Out of range - Stop Iteration
+print("----")
+"""
+# Global keyword
+# A global keyword is a keyword that allows a user to modify a variable outside the current scope.
+a = 12
+def add():
+    global a
+    a = a + 5  # This will show error so we will use global to declare a variable
+    b = a + 12
+    c = a + b
+    print(c)
+add()
 ""
