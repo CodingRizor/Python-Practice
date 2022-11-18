@@ -727,7 +727,7 @@ for i in g:
 # print(g.__next__())
 # print(g.__next__()) Out of range - Stop Iteration
 print("----")
-"""
+
 # Global keyword
 # A global keyword is a keyword that allows a user to modify a variable outside the current scope.
 a = 12
@@ -738,4 +738,94 @@ def add():
     c = a + b
     print(c)
 add()
-""
+# Global in nested Functions
+x = 0
+def sun():
+    x = 15
+    def res():
+        global x
+        x = 20
+    print("Before", x)
+    res()
+    print("After ", x)
+sun()
+print("Final ", x)
+
+# Functions can be treated as objects
+def cg(text):
+    return text.upper()
+print(cg('dhairya'))
+chg = cg   # Assigning function
+print(chg("saraswat"))
+
+# Function can return another function
+def outer(x):
+    def inner(y):
+        return x+y
+    return inner
+a = outer(10)
+print(a(15))
+
+# Nested Functions
+def outer(text):
+    def inner(text):
+        print(text)
+    inner(text)
+outer('Dhairya')
+
+# Decorators
+def f1(f2):
+    print("Function 1")
+    f2()
+    print("Ended")
+
+@f1
+def f2():
+    print("Decorator")
+# Closures-
+# A closure is a function object that remembers values in an enclosing scope even if they are not present in memory
+def outer(text):
+    def inner():
+        print(text)
+    return inner          # without any parenthesis important**
+# outer('Dhairya')   It will not show anything
+obj = outer('Dhairya')
+del outer   # Even if outer is deleted obj retains value
+obj()
+
+
+# *args ang **kwargs
+# This is a simple method. The problem arises when there are countless number of arguments.
+# Creating a variable for every element is not possible and accessing them.
+
+# def fx(a, b, c, d):
+#     print(a, b, c, d)
+# fx("A", "B", "C", "D")
+
+val = ['A', 'B', "C", "D"]
+kval = {"Name":"Dhairya", "Age":"21"}
+# Now if we add n number of data, accessing them will be easy.
+def fun(*args, **kval):
+    print(type(args))  # Always a tuple
+    # print(args)
+    print("Arguments - ")
+    for item in args:
+        print(item)
+    print("Key word Arguments - ")
+    for key, value in kval.items():
+        print(key, "-", value)
+
+fun(*val, **kval)
+# ** function(normal_argument, *args, *kwargs)
+
+# Enumerate
+print("Enumerate - ")
+i = ["Horizon Zero Dawn", "God of War", "Uncharted", "The Last of Us"]
+for index, item in enumerate(i):
+    print(index, end=" ")
+    print(item)
+"""
+
+
+
+
